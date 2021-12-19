@@ -24,6 +24,15 @@ export class HelloWorldComponent implements OnInit {
     });
   }
 
+  test() {
+    this.subscriptions.test2 = this.service.loginGithub().subscribe((result: boolean) =>
+    {
+      if(result === true) {
+        this.message = 'button call successful!';
+      }
+    });
+  }
+
 
   ngOnDestroy(): void {
     for (const field of Object.keys(this.subscriptions)) {
