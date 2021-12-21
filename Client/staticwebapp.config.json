@@ -24,10 +24,13 @@
         {
             "route": "/.auth/login/facebook",
             "statusCode": 404
-        },
-        {
-            "route": "/*",
-            "statusCode": 200
         }
-    ]
+    ],
+    "responseOverrides": {
+        "401": {
+          "redirect": "/login",
+          "statusCode": 302
+        }
+    }
+    
 }

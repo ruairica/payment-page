@@ -15,10 +15,6 @@ const routes: Routes = [
       {
         path: 'pay',
         component: PaymentPageComponent,
-      },
-      {
-        path: '**',
-        redirectTo: '/login'
       }
     ]
   }
