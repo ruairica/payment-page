@@ -11,5 +11,23 @@
             }
         }
         }
-    } 
+    },
+    "routes": [
+        {
+            "route": "/pay",
+            "allowedRoles": ["authenticated"]
+        },
+        {
+            "route": "/.auth/login/twitter",
+            "statusCode": 404
+        },
+        {
+            "route": "/.auth/login/facebook",
+            "statusCode": 404
+        },
+        {
+            "route": "/*",
+            "statusCode": 200
+        }
+    ]
 }

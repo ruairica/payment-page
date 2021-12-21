@@ -1,5 +1,6 @@
 <span>hello-world angular component works! </span>
 <div>{{ message }}</div>
-<div><a href="/.auth/login/github">Login with github</a></div>
-<div><a href="/.auth/login/aad">Login with Microsoft</a></div>
-<div><a href="/.auth/login/google">Login with Google</a></div>
+<div><a [href]="githubUrl">Login with github</a></div>
+<div><a [href]="aadUrl">Login with Microsoft</a></div>
+<div><a [href]="googleUrl">Login with Google</a></div>
+<a [routerLink]="['/pay']">link to pay page</a>

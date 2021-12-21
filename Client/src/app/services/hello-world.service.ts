@@ -16,9 +16,4 @@ export class HelloWorldService {
     const requestUrl = `${environment.baseUrl}/api/HelloWorld`;
     return this.http.get<boolean>(requestUrl);
   }
-
-  loginGithub(): Observable<any> {
-    const requestUrl = `${environment.baseUrl}/.auth/login/github`;
-    return this.http.get<boolean>(requestUrl);
-  }
 }

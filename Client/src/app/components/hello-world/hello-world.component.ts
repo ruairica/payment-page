@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { environment } from 'src/environments/environment';
 import { HelloWorldService } from '../../services/hello-world.service';
 
 @Component({
@@ -14,24 +15,24 @@ export class HelloWorldComponent implements OnInit {
   constructor(private service: HelloWorldService) { }
 
   message = 'if you are seeing this the api call did not work';
+  githubUrl = '/.auth/login/github';
+  aadUrl = '/.auth/login/aad';
+  googleUrl = '/.auth/login/google';
+  redirectUrl = '';
 
   ngOnInit(): void {
-    this.subscriptions.test = this.service.testApiEndpoint().subscribe((result: boolean) =>
-    {
+    this.subscriptions.test = this.service.testApiEndpoint().subscribe((result: boolean) => {
       if(result === true) {
         this.message = 'api call successful!';
       }
     });
+
+    this.redirectUrl =  '?post_login_redirect_uri=' + location.origin + '/pay'
+    this.githubUrl += this.redirectUrl;
+    this.aadUrl += this.redirectUrl;
+    this.googleUrl += this.redirectUrl;
   }
 
-  test() {
-    this.subscriptions.test2 = this.service.loginGithub().subscribe((result: boolean) =>
-    {
-      if(result === true) {
-        this.message = 'button call successful!';
-      }
-    });
-  }
 
 
   ngOnDestroy(): void {

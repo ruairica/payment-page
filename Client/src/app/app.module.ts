@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HelloWorldComponent } from './components/hello-world/hello-world.component';
+import { PaymentPageComponent } from './components/payment-page/payment-page.component';
 
 @NgModule({
-  declarations: [AppComponent, HelloWorldComponent],
+  declarations: [AppComponent, HelloWorldComponent, PaymentPageComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
