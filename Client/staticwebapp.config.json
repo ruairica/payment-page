@@ -24,6 +24,10 @@
         {
             "route": "/.auth/login/facebook",
             "statusCode": 404
+        },
+        {
+            "route": "/",
+            "redirect": "/pay"
         }
     ],
     "responseOverrides": {
