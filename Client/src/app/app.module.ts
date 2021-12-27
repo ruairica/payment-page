@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HelloWorldComponent } from './components/hello-world/hello-world.component';
 import { PaymentPageComponent } from './components/payment-page/payment-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxStripeModule } from 'ngx-stripe';
+
 
 
 @NgModule({
