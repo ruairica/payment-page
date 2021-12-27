@@ -16,4 +16,9 @@ export class HelloWorldService {
     const requestUrl = `${environment.baseUrl}/api/HelloWorld`;
     return this.http.get<boolean>(requestUrl);
   }
+
+  createStripeSession(): Observable<any> { 
+    const requestUrl = `${environment.baseUrl}/api/PaymentSecret`;
+    return this.http.get<any>(requestUrl);
+  }
 }

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HelloWorldComponent } from './components/hello-world/hello-world.component';
 import { PaymentPageComponent } from './components/payment-page/payment-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [AppComponent, HelloWorldComponent, PaymentPageComponent],
@@ -13,6 +15,7 @@ import { PaymentPageComponent } from './components/payment-page/payment-page.com
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
   ],
   bootstrap: [AppComponent]
 })
