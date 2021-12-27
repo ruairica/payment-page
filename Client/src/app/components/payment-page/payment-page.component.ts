@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { HelloWorldService } from 'src/app/services/hello-world.service';
-import { StripeService, StripeCardComponent } from 'ngx-stripe';
-import {
-  StripeCardElementOptions,
-  StripeElementsOptions
-} from '@stripe/stripe-js';
-
 @Component({
   selector: 'app-payment-page',
   templateUrl: './payment-page.component.html',
