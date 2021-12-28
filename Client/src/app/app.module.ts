@@ -16,7 +16,7 @@ import { NgxStripeModule } from 'ngx-stripe';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgxStripeModule.forRoot('pk_test_51KBOjaItAOPho2b6nRFdSOjpGqMFOJoLzEZ247o789T26KrChfieGLk9STaW2xbQJ8fS3zSvYl8f4oYgsUiRkzVT005Att55m3')
+    NgxStripeModule.forRoot('pk_live_51KBOjaItAOPho2b6ZPCVoO6qkVR0PN0gINuyrlntZNnoSAUG2kQ33qjbCWVXSdPSqDIgZIZueVdb6oTorpA6Su9900m6MwehVd')
     ],
   bootstrap: [AppComponent]
 })
