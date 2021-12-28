@@ -12,25 +12,29 @@ namespace Api.Controllers
 {
     public class HelloWorldController
     {
+
+        public string x { get; set; }
+
         public HelloWorldController()
         {
             StripeConfiguration.ApiKey = Environment.GetEnvironmentVariable("StripeSecretKey");
+            this.x = Environment.GetEnvironmentVariable("StripeSecretKey");
         }
 
         [FunctionName("HelloWorldFunction")]
-        public static async Task<IActionResult> HelloWorldFunction(
+        public async Task<IActionResult> HelloWorldFunction(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "HelloWorld")] HttpRequest req)
         {
             return new OkObjectResult(true);
         }
 
         [FunctionName("CreateCheckoutSession")]
-        public static async Task<IActionResult> PaymentSecret(
+        public async Task<IActionResult> PaymentSecret(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = "PaymentSecret")] HttpRequest req)
         {
             var options = new PaymentIntentCreateOptions
             {
-                Amount = 5,
+                Amount = 500,
                 Currency = "gbp",
                 AutomaticPaymentMethods = new PaymentIntentAutomaticPaymentMethodsOptions
                 {
