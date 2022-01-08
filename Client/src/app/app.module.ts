@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HelloWorldComponent } from './components/hello-world/hello-world.component';
 import { PaymentPageComponent } from './components/payment-page/payment-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { NgxStripeModule } from 'ngx-stripe';
 
 @NgModule({
   declarations: [AppComponent, HelloWorldComponent, PaymentPageComponent],
@@ -16,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-  ],
+    NgxStripeModule.forRoot('pk_live_51KBOjaItAOPho2b6ZPCVoO6qkVR0PN0gINuyrlntZNnoSAUG2kQ33qjbCWVXSdPSqDIgZIZueVdb6oTorpA6Su9900m6MwehVd')
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

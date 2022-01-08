@@ -1,4 +1,9 @@
-<p>payment-page works!</p>
-<button (click)="createSession()">Checkout!</button>
+<p>pay £5</p>
+<div>
+    <ngx-stripe-payment *ngIf="client_secret" [clientSecret]="client_secret"></ngx-stripe-payment>
+</div>
+<button (click)="pay()">Pay</button>
+<div>status : {{status}}</div>
+<div>error: {{errorMessage}}</div>
 <a [href]="logOutUrl">Log out</a>
 
