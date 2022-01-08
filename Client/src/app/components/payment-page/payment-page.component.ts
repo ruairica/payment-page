@@ -21,11 +21,13 @@ export class PaymentPageComponent implements OnInit, OnDestroy {
 
   redirectUrl = '';
   logOutUrl = '/.auth/logout'
+  userName = ''
 
   ngOnInit(): void {
-
     this.redirectUrl =  '?post_logout_redirect_uri=' + '/login';
     this.logOutUrl += this.redirectUrl;
+
+    this.service.getUserDetails().subscribe((result) => this.userName = result.clientPrincipal.userDetails);
     this.createSession();
   }
 
@@ -38,13 +40,13 @@ export class PaymentPageComponent implements OnInit, OnDestroy {
       elements: this.paymentElement.elements,
       redirect: 'if_required'
     }).subscribe((result) => {
-      // TODO fill out these stasus better.
       if(result.error) {
         this.errorMessage = result.error.message
       } else {
         if(result.paymentIntent.status === 'succeeded') {
             this.succeeded = true;
         }
+        this.errorMessage = '';
         this.status = result.paymentIntent.status;
       }
     })

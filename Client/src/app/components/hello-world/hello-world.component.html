@@ -1,5 +1,5 @@
-<span>hello-world angular component works! </span>
-<div>{{ message }}</div>
-<div><a [href]="githubUrl" class="button">Login with github</a></div>
-<div class="margin"><a [href]="aadUrl" class="button">Login with Microsoft</a></div>
-<div class="margin"><a [href]="googleUrl" class="button">Login with Google</a></div>
+<div *ngIf="!loading">
+    <div><a [href]="githubUrl" class="button">Login with github</a></div>
+    <div class="margin"><a [href]="aadUrl" class="button">Login with Microsoft</a></div>
+    <div class="margin"><a [href]="googleUrl" class="button">Login with Google</a></div>
+</div>

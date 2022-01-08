@@ -21,13 +21,6 @@ namespace Api.Controllers
             this.x = Environment.GetEnvironmentVariable("StripeSecretKey");
         }
 
-        [FunctionName("HelloWorldFunction")]
-        public async Task<IActionResult> HelloWorldFunction(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "HelloWorld")] HttpRequest req)
-        {
-            return new OkObjectResult(true);
-        }
-
         [FunctionName("CreateCheckoutSession")]
         public async Task<IActionResult> PaymentSecret(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = "PaymentSecret")] HttpRequest req)

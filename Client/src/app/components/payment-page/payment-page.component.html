@@ -1,4 +1,5 @@
-<p>pay £5</p>
+<div>Hi {{ userName }}</div>
+<span>pay £5</span>
 <div>
     <ngx-stripe-payment *ngIf="client_secret" [clientSecret]="client_secret"></ngx-stripe-payment>
 </div>

@@ -1,7 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
+import { IClientPrincipal } from '../data-types/types';
 
 
 @Injectable({
@@ -12,12 +13,12 @@ export class HelloWorldService {
 
   constructor(private http: HttpClient) { }
 
-  testApiEndpoint(): Observable<boolean> {
-    const requestUrl = `${environment.baseUrl}/api/HelloWorld`;
-    return this.http.get<boolean>(requestUrl);
+  getUserDetails(): Observable<{clientPrincipal: IClientPrincipal}> {
+    const requestUrl = `${environment.baseUrl}/.auth/me`;
+    return this.http.get<{clientPrincipal: IClientPrincipal}>(requestUrl);
   }
-
-  createStripeSession(): Observable<any> { 
+  
+  createStripeSession(): Observable<{client_secret: string}> { 
     const requestUrl = `${environment.baseUrl}/api/PaymentSecret`;
     return this.http.get<any>(requestUrl);
   }

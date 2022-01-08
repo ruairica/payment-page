@@ -26,6 +26,10 @@
             "statusCode": 404
         },
         {
+            "route": "/api/*",
+            "allowedRoles": ["authenticated"]
+        },
+        {
             "route": "/",
             "redirect": "/pay"
         }
