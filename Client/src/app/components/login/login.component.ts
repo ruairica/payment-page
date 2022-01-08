@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { HelloWorldService } from '../../services/hello-world.service';
+import { Service } from 'src/app/services/service.service';
 
 @Component({
-  selector: 'app-hello-world',
-  templateUrl: './hello-world.component.html',
-  styleUrls: ['./hello-world.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class HelloWorldComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   private subscriptions: { [key: string]: Subscription; } = {};
 
-  constructor(private service: HelloWorldService, private router: Router) { }
+  constructor(private service: Service, private router: Router) { }
 
   message = 'if you are seeing this the api call did not work';
   githubUrl = '/.auth/login/github';
@@ -23,12 +23,9 @@ export class HelloWorldComponent implements OnInit {
   loading = true;
 
   ngOnInit(): void {
-
-    console.log('hi');
     this.subscriptions.auth = this.service.getUserDetails().subscribe((result) => {
-      console.log(result.clientPrincipal);
       if (result.clientPrincipal) {
-        // redirect
+        // redirect if authenticated.
         this.router.navigate(['/pay'])
       } else {
         this.loading = false;

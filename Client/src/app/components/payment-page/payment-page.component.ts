@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { StripePaymentElementComponent, StripeService } from 'ngx-stripe';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { HelloWorldService } from 'src/app/services/hello-world.service';
+import { Service } from 'src/app/services/service.service';
 
 @Component({
   selector: 'app-payment-page',
@@ -17,16 +17,12 @@ export class PaymentPageComponent implements OnInit, OnDestroy {
   succeeded = false;
   status ='';
 
-  constructor(private service: HelloWorldService, private fb: FormBuilder, private stripeService: StripeService) { }
+  constructor(private service: Service, private fb: FormBuilder, private stripeService: StripeService) { }
 
-  redirectUrl = '';
-  logOutUrl = '/.auth/logout'
+  logOutUrl = '/.auth/logout?post_logout_redirect_uri=/login'
   userName = ''
 
   ngOnInit(): void {
-    this.redirectUrl =  '?post_logout_redirect_uri=' + '/login';
-    this.logOutUrl += this.redirectUrl;
-
     this.service.getUserDetails().subscribe((result) => this.userName = result.clientPrincipal.userDetails);
     this.createSession();
   }

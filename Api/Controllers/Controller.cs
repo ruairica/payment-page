@@ -5,29 +5,23 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Stripe;
 using System;
-using Stripe.Checkout;
-using System.Collections.Generic;
 
 namespace Api.Controllers    
 {
-    public class HelloWorldController
+    public class Controller
     {
-
-        public string x { get; set; }
-
-        public HelloWorldController()
+        public Controller()
         {
             StripeConfiguration.ApiKey = Environment.GetEnvironmentVariable("StripeSecretKey");
-            this.x = Environment.GetEnvironmentVariable("StripeSecretKey");
         }
 
-        [FunctionName("CreateCheckoutSession")]
-        public async Task<IActionResult> PaymentSecret(
-        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "PaymentSecret")] HttpRequest req)
+        [FunctionName("PaymentIntent")]
+        public async Task<IActionResult> PaymentIntent(
+        [HttpTrigger(AuthorizationLevel.Function, "get", Route = "PaymentIntent")] HttpRequest req)
         {
             var options = new PaymentIntentCreateOptions
             {
-                Amount = 500,
+                Amount = 500, // £5
                 Currency = "gbp",
                 AutomaticPaymentMethods = new PaymentIntentAutomaticPaymentMethodsOptions
                 {

@@ -9,7 +9,7 @@ import { IClientPrincipal } from '../data-types/types';
   providedIn: 'root'
 })
 
-export class HelloWorldService {
+export class Service {
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,7 @@ export class HelloWorldService {
   }
   
   createStripeSession(): Observable<{client_secret: string}> { 
-    const requestUrl = `${environment.baseUrl}/api/PaymentSecret`;
-    return this.http.get<any>(requestUrl);
+    const requestUrl = `${environment.baseUrl}/api/PaymentIntent`;
+    return this.http.get<{client_secret: string}>(requestUrl);
   }
 }
